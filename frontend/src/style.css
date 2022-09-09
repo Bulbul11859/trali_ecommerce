@@ -1,0 +1,423 @@
+/* /* ************************
+        Navbar design
+******************************** */
+.menu .login_trali{
+    color: #001138;
+
+}
+
+.container{
+    max-width: 87%;
+    margin: 0 auto;
+  
+}
+.logo_font{
+    font-family: 'Hind', sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+    color: #252525;
+}
+
+.menu{
+    background: transparent;
+    padding-bottom: 5px;
+}
+.nav_middle{
+  display: flex;
+  justify-content: center;
+  width: auto;
+  margin-top: 14px;
+  margin-left: 50px;
+  font-family: 'Hind', sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  color: #161616;
+  font-weight: 700;
+}
+.nav_middle a{
+    display: inline-block;
+    background-color: transparent !important;
+   
+    margin: 0 14px !important;
+}
+.login_nav{
+    margin-right: 10px !important;
+}
+
+.nav_middle a:hover{
+    background-color: transparent !important;
+    color: #05297F !important;
+  
+}
+.logo_font{
+    font-family: 'Montserrat', sans-serif;
+    color: #001138;
+    font-size: 25px;
+}
+.fa-cart-flatbed-suitcase{
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 40px;
+}
+
+.navicon{
+    margin-top: 13px;
+    margin-right: 22px;
+   
+}
+.nn{
+    background: transparent !important;
+    margin-top: 11px;
+}
+.nn2{
+    margin-top: 1px;
+}
+.icon{
+    margin-left: 37px;
+    font-size: 23px;
+    color: #141414;
+}
+
+.icon:hover{
+  
+    color: #05297F;
+}
+  
+.round{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #05297F;
+    position: absolute;
+    top: 0;
+    right: 0;
+    top: 24px;
+    right: 9px;
+    font-family: 'Hind', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: #ffff;
+    text-align: center;
+    line-height:20px ;
+    border: 2px solid #fff;
+}
+
+
+/*******************************
+             Banner Css
+********************************/
+.rs-carousel{
+    height: auto;
+}
+.rs-carousel-slider-after, .rs-carousel-slider-item{
+   background: transparent !important;
+}
+.bannerimg{
+    height: 100vh;
+    background-size: cover;
+    padding: 15% 0px;
+}
+.bannerimg h3{
+    color: #05297F;
+    font-size: 20px;
+    font-family: 'Hind', sans-serif;
+    font-weight: 700;
+    line-height: 22px;
+   
+}
+.bannerimg h1{
+    width: 60%;
+    font-family: 'Hind';
+font-style: normal;
+font-size: 62px;
+font-weight: 700;
+color: #252525;
+line-height: 80px;
+margin-top: 20px;
+}
+.bannerimg span{
+    color: #05297F;
+}
+.bannerimg Button{
+    width: 12%;
+    background: #05297F;
+    color: #fff;
+    border-radius: 50px;
+   
+    padding: 10px;
+    margin-top: 40px;
+}
+.rs-carousel-label-wrapper input:checked~label{
+    background: #FC9D9D;
+}
+.rs-carousel-shape-dot .rs-carousel-label {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #B1B1B1;
+}
+
+/******************************************************* 
+                      Deal Csss
+******************************************************** */
+.deal{
+    margin-top: 100px;
+}
+.dealBox{
+    width: 97%;
+    height: 450px;
+    display: flex;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position: center center;
+    justify-content: space-between;
+   
+}
+#bb_1{
+    margin-left: 14px;
+}
+.dealBox_text{
+    margin-left: 52px;
+    padding-top: 142px;
+
+}
+.dealBox .dealBox_text h5{
+    font-family: 'Hind';
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 18px;
+color: #05297F;
+text-decoration: underline;
+cursor: pointer;
+}
+.dealBox .dealBox_text .deal_card2{
+  color: #252525;
+}
+
+
+.dealBox .dealBox_text h2{
+    width: 270px;
+    font-family: 'Hind';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 42px;
+    color: #252525;
+    margin-top: 10px;
+
+}
+.dealBox .dealBox_text .deal_button_0{
+    margin-top: 36px;
+   background: #FC9D9D;
+   color: #FFFFFF;
+    border-radius: 50px;
+    padding: 5px 12px;
+    font-family: 'Hind';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 12px;
+    line-height: 12px;
+
+}
+.dealBox .dealBox_text .deal_button_1{
+    margin-top: 36px;
+    background: #05297F;
+    color: #FFFFFF;
+    border-radius: 50px;
+    padding: 5px 12px;
+    font-family: 'Hind';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 12px;
+
+}
+
+/******************************************************* 
+                      Top Products Csss
+******************************************************** */
+.topProduct{
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+.topProduct h2{
+    font-family: 'Hind';
+font-style: normal;
+font-weight: 700;
+font-size: 44px;
+line-height: 60px;
+text-transform: uppercase;
+color: #252525;
+}
+.topProduct ul{
+    list-style: none;
+    text-align: right;
+    margin-top:13px ;
+    
+}
+.topProduct ul li{
+    cursor: pointer;
+    display: inline-block;
+   margin-left:40px;
+   font-family: 'Hind';
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 18px;
+text-transform: uppercase;
+color: #252525;
+position: relative;
+}
+.topProduct ul li span{
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background: #FC9D9D;
+    border-radius: 50%;
+    position: absolute;
+    top: 48%;
+    left: -7px;
+    transform: translateY(-50%);
+    transition: .4s;
+
+}
+.topProduct ul li:first-child:hover span{
+    width: 150%;
+    
+}
+.topProduct ul li:hover span{
+    width: 115%;
+    border-radius: 5px;
+}
+
+.product{
+    margin-top: 20px;
+}
+.rs-rate-xs .rs-rate-character {
+    width: 1em;
+    height: 1em;
+}
+.rs-rate-character .rs-icon{
+    height: 14px;
+  
+}
+
+.product_head{
+    font-family: 'Hind';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 28px;
+    color: #252525 ;
+    margin-top: 6px;
+}
+.product_head2{
+    font-family: 'Hind';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    color: #757575;
+    margin-top: 6px;
+}
+.font_zara{
+    font-size: 12px;
+    color: #B1B1B1;
+    margin-top: 1px;
+}
+
+.product_color{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 11px;
+    background: red;
+   
+}
+.active_product_color{
+    border:2px solid #C4C4C4;
+}
+.colorSizeBox{
+    display: flex;
+    margin-top: 8px;
+   
+}
+.colorSizeBox_Size{
+    
+   margin-left: auto;
+  
+}
+ .product_size_bb{
+   display: inline-block;
+   width: 16px;
+   height: 16px;
+   border: 1px solid #C4C4C4;
+   background: #F1F1F1;
+   border-radius: 50%;
+   text-align: center;
+  
+ }
+
+.colorSizeBox_Size span{
+    margin-left: 7px;
+    font-family: 'Hind';
+font-style: normal;
+font-weight: 300;
+font-size: 12px;
+line-height: 14px;
+/* identical to box height, or 100% */
+
+text-transform: uppercase;
+
+color: #2c2c2c;
+
+}
+.span_bag_icon{
+    height: 30px;
+    width: 30px;
+    background: #FC9D9D;
+    border-radius: 50%;
+    text-align: center;
+    margin-top: 10px;
+    display: inline-block;
+    
+}
+ .bag_icon{
+  color: #FFFFFF!important;
+  margin-top: 6px;
+
+}
+.product_dolar_parent{
+    position: relative;
+}
+.product_dolar{
+    font-family: 'Hind';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 16px;
+/* identical to box height, or 100% */
+
+
+color: #303960;
+margin-left: 8px;
+position: absolute;
+top: 5px;
+
+}
+
+/******************************************************* 
+                    Registration part
+******************************************************** */
+.reg{
+  border: 1px solid rgb(197, 197, 197);
+  border-radius: 5px;
+   width:325px;
+   margin: 0 auto;
+   margin-top: 30px;
+   padding: 10px;
+}
