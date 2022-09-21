@@ -1,0 +1,300 @@
+@media only screen and (max-width: 1100px){
+    /* /* ************************
+        Navbar design
+******************************** */
+
+    .logo_font{
+        font-size: 20px;
+    }
+    .logo_font .fa-cart-flatbed-suitcase {
+        font-size: 35px;
+    }
+
+    .nav_middle{
+        margin-left: 25px;
+        font-size: 16px;
+    }
+    .nav_middle a{
+        margin: 0 10px !important;    
+    }
+    .nn .icon{
+        margin-left: 25px;
+        font-size: 20px;
+
+    }
+
+    /*******************************
+             Banner Css
+********************************/
+.bannerimg {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    padding: 25% 0px;
+}
+.bannerimg h3 {
+    color: #05297F;
+    font-size: 16px;
+    font-family: 'Hind', sans-serif;
+    font-weight: 600;
+    line-height: 22px;
+}
+.bannerimg h1 {
+    width: 60%;
+    font-family: 'Hind';
+    font-style: normal;
+    font-size: 35px;
+    font-weight: 700;
+    color: #252525;
+    line-height: 45px;
+    margin-top: 15px;
+}
+.bannerimg Button {
+    width: 12%;
+    background: #05297F;
+    color: #fff;
+    border-radius: 50px;
+    padding: 8px;
+    margin-top: 25px;
+}
+
+}
+
+@media only screen and (max-width: 950px){
+    /* /* ************************
+        Navbar design
+******************************** */
+
+    .logo_font{
+        font-size: 20px;
+    }
+    .logo_font .fa-cart-flatbed-suitcase {
+        font-size: 35px;
+    }
+
+    .nav_middle{
+        margin-left: 5px;
+        font-size: 16px;
+    }
+    .nav_middle a{
+        margin: 0 5px !important;    
+    }
+    .nn .icon{
+        margin-left: 25px;
+        font-size: 20px;
+
+    }
+    /*******************************
+             Banner Css
+********************************/
+.bannerimg {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    padding: 25% 0px;
+}
+.bannerimg h3 {
+    color: #05297F;
+    font-size: 16px;
+    font-family: 'Hind', sans-serif;
+    font-weight: 600;
+    line-height: 22px;
+}
+.bannerimg h1 {
+    width: 60%;
+    font-family: 'Hind';
+    font-style: normal;
+    font-size: 35px;
+    font-weight: 700;
+    color: #252525;
+    line-height: 45px;
+    margin-top: 15px;
+}
+.bannerimg Button {
+    width: 12%;
+    background: #05297F;
+    color: #fff;
+    border-radius: 50px;
+    padding: 8px;
+    margin-top: 25px;
+}
+}
+@media only screen and (max-width: 850px){
+    /* /* ************************
+        Navbar design
+******************************** */
+.Menubar_nav{
+    position: relative;
+}
+.Menubar_mobile_banner{
+    position: absolute;
+    width: 30%;
+    height: 100vh;
+    top: 0px;
+    left:70%;
+    transition: 2s;
+    background: rgb(255, 153, 0);
+    z-index: 888;
+}
+.Menubar_mobile_banner2{
+    position: absolute;
+    width: 30%;
+    height: 100vh;
+    top: -904px;
+    left:70%;
+    background: rgb(235, 163, 6);
+    transition: 2.5s;
+    z-index: 888;
+}
+   .menu{
+    position: relative;
+   }
+
+
+   .Menubar_nav .hamburger-react{
+    display: inline-block !important;
+    left: 60%;
+    z-index: 1111;
+}
+
+
+   .logo_font{
+    z-index: 9979;
+   }
+   .nav_mobile{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 888;
+    top:30px;
+    transition: 2s;
+    right: 0;
+   }
+   .nav_mobile2{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 888;
+    top:-444px;
+    transition: 2s;
+    right: 44px;
+   }
+   .nav_middle{
+    display: flex;
+    flex-direction: column;
+   }
+   .nav_middle a{
+    text-align: right;
+   }
+   .navicon {
+     margin-top: 0px; 
+    margin-right: 22px;
+}
+   .nn{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+   }
+   .nn .icon{
+      margin-top: 10px;
+   }
+   .nn .round_box{
+    position: relative;
+   }
+   .round {
+   
+   
+    top: 17px;
+    
+}
+}
+
+@media only screen and (max-width: 550px){
+    /* /* ************************
+        Navbar design
+******************************** */
+.Menubar_nav{
+    position: relative;
+}
+.Menubar_mobile_banner{
+    position: absolute;
+    width: 30%;
+    height: 100vh;
+    top: 0px;
+    left:70%;
+    transition: .5s;
+    background: rgb(255, 153, 0);
+    z-index: 888;
+}
+.Menubar_mobile_banner2{
+    position: absolute;
+    width: 30%;
+    height: 100vh;
+    top: -904px;
+    left:70%;
+    background: rgb(235, 163, 6);
+    transition: .5s;
+    z-index: 888;
+}
+   .menu{
+    position: relative;
+   }
+
+
+   .Menubar_nav .hamburger-react{
+    display: inline-block !important;
+    left: 50%;
+    z-index: 1111;
+}
+
+
+   .logo_font{
+    z-index: 9979;
+   }
+   .nav_mobile{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 888;
+    top:30px;
+    transition: .5s;
+    right: 0;
+   }
+   .nav_mobile2{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 888;
+    top:-444px;
+    transition: .5s;
+    right: 44px;
+   }
+   .nav_middle{
+    display: flex;
+    flex-direction: column;
+   }
+   .nav_middle a{
+    text-align: right;
+   }
+   .navicon {
+     margin-top: 0px; 
+    margin-right: 22px;
+}
+   .nn{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+   }
+   .nn .icon{
+      margin-top: 10px;
+   }
+   .nn .round_box{
+    position: relative;
+   }
+   .round {
+   
+   
+    top: 17px;
+    
+}
+}

@@ -12,6 +12,7 @@ import Dashboard from './pages/Dashboard';
 import Vendor from './components/Vendor';
 import Registration from './components/Registration';
 import Login from './components/Login';
+import Cart from './pages/Cart';
 
 
 
@@ -24,6 +25,7 @@ function App() {
       <BrowserRouter>
       <Menubar></Menubar>
     <Routes>
+    <Route path="/cart" element={<Cart />}></Route>
     <Route path="/admin" element={<Dashboard />}></Route>
     <Route path="/registration" element={<Registration />}></Route>
     <Route path="/login" element={<Login/>}></Route>

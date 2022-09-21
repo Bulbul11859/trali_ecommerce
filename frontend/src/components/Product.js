@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Container,Grid, Row, Col,Button,Panel,Rate } from 'rsuite';
+import { ToastContainer, toast } from 'react-toastify';
+
 import { Store } from '../Store';
 
 const Product = (props) => {
@@ -13,28 +15,82 @@ const Product = (props) => {
    
    const {cart}=cartstate
    
-  
+  console.log(activeproductsize)
   
  
 
    const handleAddCart=(product)=>{
 
-    
+    if(activecolor && activeproductsize){
+    console.log(product)
    
    
     const product_id=product._id.toString();
 
 
     const existingItem=cart.cartItems.find((item,index)=>item._id===product_id)
-   
+ 
     const quantity=existingItem?existingItem.quantity+1:1
+    const price= existingItem?existingItem.price*2:product.price 
    
     
     cartdispatch({
       type:'ADD_TO_CART',
-      payload:{...product,quantity}
+      payload:{...product,quantity,price,color:activecolor,size:activeproductsize}
     })
-   
+
+    toast.success('Succesfully added your product', {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+      setActiveColor('')
+      setProductSize('')
+  }
+
+
+  else if(!activecolor && !activeproductsize){
+    toast.warn('please added one size & color ', {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+  }
+
+  else if(!activeproductsize){
+    toast.warn('please added one size', {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+  }
+
+
+  else{
+    toast.warn('please added one color ', {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+  }
+
+
 
    }
   return (
@@ -64,14 +120,25 @@ const Product = (props) => {
 
      <p className='span_bag_icon' onClick={()=>handleAddCart(props.product)}>
      <i class="fa-solid fa-bag-shopping bag_icon"></i>
+     <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
      </p>
 
      <span className='product_dolar_parent'>
-     <span className='product_dolar'>$145</span>
+     <span className='product_dolar'>৳{props.price}</span>
      </span>
      </div>
 
-     
+    
   </Panel>
      
   

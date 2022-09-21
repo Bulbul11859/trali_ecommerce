@@ -1,6 +1,10 @@
 /* /* ************************
         Navbar design
 ******************************** */
+*{
+    margin: 0;
+    padding: 0;
+}
 .menu .login_trali{
     color: #001138;
 
@@ -16,11 +20,16 @@
     font-size: 18px;
     line-height: 22px;
     color: #252525;
+   
 }
 
 .menu{
     background: transparent;
     padding-bottom: 5px;
+}
+
+.Menubar_nav .hamburger-react{
+    display: none !important;
 }
 .nav_middle{
   display: flex;
@@ -103,6 +112,25 @@
     border: 2px solid #fff;
 }
 
+.Drawer_sizeProduct{
+    margin-left: 10px;
+    font-size: 12px;    
+}
+
+.Drawer_sizeProduct_active{
+    margin-left: 10px;
+    /* margin-top: -5px; */
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+    border: 1px solid #000;
+    display: inline-block;
+    align-items: center;
+    text-align: center;
+    font-size: 10px;   
+    background: #05297F; 
+}
+
 
 /*******************************
              Banner Css
@@ -133,7 +161,7 @@ font-style: normal;
 font-size: 62px;
 font-weight: 700;
 color: #252525;
-line-height: 80px;
+line-height: 70px;
 margin-top: 20px;
 }
 .bannerimg span{
@@ -261,7 +289,7 @@ color: #252525;
 .topProduct ul li{
     cursor: pointer;
     display: inline-block;
-   margin-left:40px;
+   margin-left:35px;
    font-family: 'Hind';
 font-style: normal;
 font-weight: 600;
@@ -421,3 +449,37 @@ top: 5px;
    margin-top: 30px;
    padding: 10px;
 }
+
+/******************************************************* 
+                    Cart Page part
+******************************************************** */
+.cartpage h2{
+    font-family: 'Hind';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 62px;
+    line-height: 90px;
+    /* identical to box height, or 125% */
+    margin-top: 134px;
+    
+    color: #252525;
+    margin-bottom: 90px;
+}
+.cartpage h5{
+    font-family: 'Hind';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 100% */
+    
+    text-transform: uppercase;
+    
+    color: #666666;
+    
+}
+
+.cartpage .cartpage_item h5{
+  
+
+} 

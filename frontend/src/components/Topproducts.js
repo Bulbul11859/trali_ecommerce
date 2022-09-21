@@ -39,8 +39,8 @@ const Topproducts = () => {
     <Container className='container ka'>
     <Row className="show-grid">
      {product.map(item=>(
-          <Col xs={6} style={{marginBottom:"35px"}}>
-          <Product product={item} img={item.image} heading={item.name}  color={item.productcolor} Size={item.productsize} brandName={item.brandname} description={item.description}/>
+          <Col xs={24} sm={12} md={8} lg={6}  style={{marginBottom:"35px"}}>
+          <Product product={item} img={item.image} heading={item.name}  color={item.productcolor} Size={item.productsize} brandName={item.brandname} description={item.description} price={item.price}/>
           </Col>
      ))}
       

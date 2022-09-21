@@ -15,7 +15,7 @@ const Banner = () => {
 
   return (
     <>
-    
+    <div>
     <Carousel className="custom-slider">
       {banner.map((item,index)=>(
       
@@ -33,6 +33,7 @@ const Banner = () => {
         
       ))}
   </Carousel>
+  </div>
  
   </>
   )
