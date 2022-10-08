@@ -10,6 +10,7 @@ const productData=require('./productData')
 const Brand=require('./model/brandModel.js')
 const Cat=require('./model/catagoryModel.js')
 const Product=require('./model/productModel.js')
+const Cupon=require('./model/cuponModel.js')
 const User=require('./model/usermodel.js')
 
 const bcrypt = require('bcrypt');
@@ -19,7 +20,8 @@ mongoose.connect('mongodb+srv://Trali:83407708@cluster0.cvlcm.mongodb.net/trali?
 });
 
 const app = express()
-var cors = require('cors')
+var cors = require('cors');
+const { request } = require('express');
 app.use(cors())
 
 
@@ -153,6 +155,43 @@ app.get('/product',async function (req, res) {
   res.send(data)
 })
 
+
+app.post('/cupon', function (req, res) {
+  console.log(req.body.cuponname)
+  console.log(req.body.discount)
+  let cuponInfo={
+    cuponname:req.body.cuponname,
+    discount:req.body.discount
+  }
+  const cupon=new Cupon(cuponInfo)
+  cupon.save()
+  res.send("hello")
+    
+})
+
+
+
+app.get('/cupon/:cupon',async function (req, res) {
+
+  let data=await Cupon.find({cuponname:req.params.cupon})
+  res.send(data)
+})
+
+
+
+app.get('/cuponlist',async function (req, res) {
+  
+  let data=await Cupon.find({})
+  res.send(data)
+})
+
+app.post('/cuponlist/:id',async function (req, res) {
+  console.log(req.params.id)
+  Cupon.findByIdAndRemove(req.params.id,()=>{
+    
+  })
+
+})
 
 
 

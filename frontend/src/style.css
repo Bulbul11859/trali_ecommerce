@@ -460,10 +460,10 @@ top: 5px;
     font-size: 62px;
     line-height: 90px;
     /* identical to box height, or 125% */
-    margin-top: 134px;
+    margin-top: 140px;
     
     color: #252525;
-    margin-bottom: 90px;
+    margin-bottom: 60px;
 }
 .cartpage h5{
     font-family: 'Hind';
@@ -472,14 +472,240 @@ top: 5px;
     font-size: 14px;
     line-height: 14px;
     /* identical to box height, or 100% */
-    
+    text-align: center;
     text-transform: uppercase;
     
     color: #666666;
     
 }
 
-.cartpage .cartpage_item h5{
-  
+.cartpage .cartpage_item{
+   display: flex;
 
 } 
+.cartpage .cartpage_item h3{
+    font-family: 'Hind';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 133% */
+    margin-bottom: 6px;
+    
+    color: #252525;
+    
+ 
+ } 
+
+ .cartpage .cartpage_item .cartpage_item_text{
+    
+   margin-top: 7px;
+   margin-left: 10px;
+ 
+ } 
+
+
+ .cartpage .cartpage_price h5{
+    font-family: 'Hind';
+font-style: normal;
+font-weight: 500;
+margin-top: 50px;
+font-size: 16px;
+line-height: 22px;
+/* identical to box height, or 100% */
+
+text-align: center;
+color: #303960;
+
+ 
+ } 
+
+ .cartpage .cartpage_price2 h5{
+    font-family: 'Hind';
+font-style: normal;
+font-weight: 600;
+margin-top: 50px;
+font-size: 16px;
+line-height: 22px;
+/* identical to box height, or 100% */
+
+text-align: center;
+color: #05297F;
+
+ 
+ } 
+
+ .cartpage .cartpage_quantity .cartpage_quantity_text{
+   width: 55px;
+   margin: 0 auto;
+   padding: 2px 0px;
+   border-radius: 50px;
+   border: 1px solid #B1B1B1;
+   text-align: center;
+   margin-top: 47px;
+    
+ } 
+
+ .cartpage_quantity_count{
+    padding: 0px 8px;
+ }
+
+ .cartpage_clear{
+    background: #EEF2F5;
+    padding: 8px 0px;
+    border-radius: 50px;
+    color: #252525 !important;
+    cursor: pointer;
+
+ }
+ .cartpage_update{
+    background: #FC9D9D    ;
+    padding: 8px 0px;
+    border-radius: 50px;
+    color: #FFFFFF !important;
+    cursor: pointer;
+ }
+
+ .cartpage .shipping{
+    background: #EEF2F5;
+    padding: 60px;
+ }
+ .cartpage .shipping h3{
+    
+font-family: 'Hind';
+font-style: normal;
+font-weight: 500;
+font-size: 22px;
+line-height: 24px;
+/* identical to box height, or 100% */
+
+text-transform: uppercase;
+
+color: #252525;
+margin-bottom: 15px;
+
+ }
+
+ .cartpage .shipping .rs-input{
+    border-radius: 50px;
+    margin-bottom: 10px;
+ }
+
+ .shipping_box{
+    margin-top: 120px;
+ }
+
+ .shipping_subtotal{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    
+
+ }
+
+ .shipping_subtotal h5{
+    font-family: 'Hind';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height, or 133% */
+
+
+    color: #252525;
+ }
+
+ .shipping_delivary{
+    display: flex;
+    justify-content: space-between;
+
+ }
+
+ .shipping_delivary h5{
+    font-family: 'Hind';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height, or 133% */
+
+
+    color: #252525;
+    margin-bottom: 15px;
+ }
+
+ .shipping_Order{
+    display: flex;
+    justify-content: space-between;
+
+ }
+
+ .shipping_Order h5{
+    font-family: 'Hind';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    /* identical to box height, or 100% */
+    
+    text-transform: uppercase;
+    
+    color: #252525;
+   
+ }
+
+ .shipping .StripeCheckout{
+    margin-top: 50px;
+  
+   border-radius: 50px;
+  width: 100%;
+   
+   text-align: center;
+    font-family: 'Hind';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 18px;
+    /* identical to box height, or 100% */
+
+
+    color: #FFFFFF;
+ }
+
+ .shipping  .btn{
+    margin-top: 50px;
+    background: #05297F;
+   border-radius: 50px;
+    width: 100%;
+    padding: 5px 0px;
+    cursor: pointer;
+   text-align: center;
+    font-family: 'Hind';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 18px;
+    /* identical to box height, or 100% */
+    color: #FFFFFF;
+    
+
+  
+ }
+ .cupon_discount{
+    font-family: 'Hind';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 24px;
+    /* identical to box height, or 100% */
+
+    text-transform: uppercase;
+    margin-top: 120px;
+    margin-bottom: 15px;
+
+    color: #252525;
+
+ }
+
+
+ 

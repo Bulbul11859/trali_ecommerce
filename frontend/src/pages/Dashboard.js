@@ -1,5 +1,5 @@
 import React, { useEffect, useState,useRef, useMemo, useContext } from 'react'
-import { Container,Grid, Row, Col,Form,Input,ButtonToolbar,Button,InputPicker,Sidenav, Nav, Dropdown,Toggle,Checkbox, CheckboxGroup } from 'rsuite';
+import { Container,Grid, Row, Col,Form,Input,ButtonToolbar,Button,InputPicker,Sidenav, Nav, Dropdown,Toggle,Checkbox, CheckboxGroup,Table } from 'rsuite';
 import JoditEditor from "jodit-react";
 import {Store} from '../Store'
 import { Icon } from 'rsuite'
@@ -8,6 +8,7 @@ import axios from 'axios';
 
 
 const Textarea = React.forwardRef((props, ref) => <Input {...props} as="textarea" ref={ref} />);
+const { Column, HeaderCell, Cell } = Table;
 
 
 const Dashboard = () => {
@@ -81,10 +82,21 @@ const Dashboard = () => {
   const [brand,setBrand]=useState(false)
    let [productbrand,setProductbrand]=useState("")
    const [brandname,setBrandname]=useState([])
+
+
   //catagory
    const [catagory,setCatagory]=useState(false)
    let [productcatagory,setProductcatagory]=useState("")
    const [catagoryname,setCatagoryname]=useState([])
+
+   //cupon
+   const [cupon,setCupon]=useState(false)
+   let [cuponName,setCuponName]=useState("")
+   let [discount,setDiscount]=useState("")
+   let [cupondata,setCupondata]=useState([])
+
+   
+  
 //editor
    const editor = useRef(null)
    const [content, setContent] = useState('')
@@ -95,19 +107,31 @@ const Dashboard = () => {
     setCatagory(false)
     setBrand(false)
     setPro(true)
+    setCupon(false)
    }
 //brand
   let handlebrand=()=>{
     setPro(false)
     setCatagory(false)
     setBrand(true)
+    setCupon(false)
   }
 //catagory
   let handleCatagory=()=>{
     setPro(false)
     setBrand(false)
     setCatagory(true)
+    setCupon(false)
   }
+
+  //cupon 
+  let handleCupon=()=>{
+    setPro(false)
+    setBrand(false)
+    setCatagory(false)
+    setCupon(true)
+  }
+
 //brand
   let handleBrandSubmit=async ()=>{
     let dd=await axios.post('http://localhost:8000/brand',{
@@ -130,7 +154,7 @@ const Dashboard = () => {
         let {data}=await axios.post("http://localhost:8000/catagory",{
           catagory:productcatagory
         })
-        console.log("data")
+       
   }
 
   useEffect(()=>{
@@ -159,10 +183,32 @@ const Dashboard = () => {
     })
   }
 
+  let handlecuponData=async()=>{
+     const {data}=await axios.post('http://localhost:8000/cupon',{
+      cuponname:cuponName,
+      discount:discount
+     })
+  }
   
+  useEffect(()=>{
+    async function cuponli(){
+       let {data}=await axios.get('http://localhost:8000/cuponlist')
+       setCupondata(data)
+    }
+    cuponli()
+  },[])
   
- 
+ let handleDeleteCupon=async(id)=>{
+       alert(id)
+       const {data}=await axios.post(`http://localhost:8000/cuponlist/${id}`,{
+         
+     })
+ }
   
+
+ let handleEditCupon=()=>{
+
+ }
  
  
   
@@ -201,13 +247,13 @@ const Dashboard = () => {
          Catagory Upload
        </Nav.Item>
 
-        <Dropdown eventKey="4" title="Advanced">
-              <Dropdown.Item eventKey="4-1">Privacy</Dropdown.Item>
-              <Dropdown.Item eventKey="4-2">About</Dropdown.Item>
-              <Dropdown.Item eventKey="4-3">Terms</Dropdown.Item>
-        </Dropdown>
+
+        <Nav.Item eventKey="4"  onClick={handleCupon}>
+       <i class="fa-solid fa-users"></i> Cupon
+       </Nav.Item>
      
      </Nav>
+
    </Sidenav.Body>
    <Sidenav.Toggle expanded={expanded} onToggle={expanded => setExpanded(expanded)} />
  </Sidenav>
@@ -330,6 +376,75 @@ const Dashboard = () => {
             </Form.Group>
           </Form>
 
+       }
+
+       {cupon&&
+       <>
+      <Form fluid>
+
+      <Form.Group controlId="name-1">
+       <Form.ControlLabel>Cupon Name</Form.ControlLabel>
+       <Form.Control name="name"  placeholder='Cupon Name' onChange={(e)=>setCuponName(e)}/>
+      </Form.Group>
+
+      <Form.Group controlId="name-1">
+       <Form.ControlLabel>Discount</Form.ControlLabel>
+       <Form.Control name="name"  placeholder='Discount' onChange={(e)=>setDiscount(e)}/>
+      </Form.Group>
+              
+          <Form.Group>
+            <ButtonToolbar>
+              <Button appearance="primary" onClick={handlecuponData}>Submit</Button>
+          
+            </ButtonToolbar>
+          </Form.Group>
+        </Form>
+
+
+        <Table
+      height={400}
+      data={cupondata}
+      onRowClick={rowData => {
+        console.log(rowData);
+      }}
+    >
+      <Column width={60} align="center" fixed>
+        <HeaderCell>Id</HeaderCell>
+        <Cell dataKey="_id" />
+      </Column>
+
+      <Column width={250}>
+        <HeaderCell>Cupon Name</HeaderCell>
+        <Cell dataKey="cuponname" />
+      </Column>
+
+      <Column width={250}>
+        <HeaderCell>Discount Name</HeaderCell>
+        <Cell dataKey="discount" />
+      </Column>
+
+    
+      
+
+      <Column width={280} fixed="right">
+        <HeaderCell>...</HeaderCell>
+
+        <Cell>
+          {rowData => (
+            <>
+            <span>
+              <a onClick={() => handleEditCupon(rowData._id)}> Edit </a>
+            </span>
+             <span style={{marginLeft:"50px"}}>
+             <a onClick={() => handleDeleteCupon(rowData._id)}> Delete </a>
+           </span>
+           </>
+          )}
+        </Cell>
+      </Column>
+    </Table>
+
+        </>
        }
     
       </Col>

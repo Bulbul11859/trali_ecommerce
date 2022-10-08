@@ -31,22 +31,29 @@ const Menubar = () => {
   console.log("ami Menu",state)
   let {userInfo}=state
 
+  
+
   let handleLogout=()=>{
      dispatch({type:'USER_LOGOUT'})
      localStorage.removeItem('userInfo')
+
+     cartdispatch({
+      type:'CLEAR_CART'
+      
+    })
   }
 
   let handleAddQuantity=(product)=>{
-    console.log(product.price)
+    console.log(product)
    
    
     const quantity=product.quantity+1
-    const price=product.price*2
+    const price2=product.price*quantity
    
     
     cartdispatch({
       type:'ADD_TO_CART',
-      payload:{...product,quantity,price}
+      payload:{...product,quantity,price2}
     })
    
   }
@@ -56,12 +63,12 @@ const Menubar = () => {
    
    if(product.quantity>1){
     const quantity=product.quantity-1
-    const price=product.price/2
+    const price2=product.price2-product.price
    
     
     cartdispatch({
       type:'ADD_TO_CART',
-      payload:{...product,quantity,price}
+      payload:{...product,quantity,price2}
     })
    
    }
@@ -191,14 +198,14 @@ const Menubar = () => {
               </Col>
               <Col xs={8}>
               <div style={{textAlign:"center",color:"#05297F",fontSize:"16px"}}>
-               <span style={{color:"#05297F",fontSize:"25px"}}>৳ </span>{item.price}
+               <span style={{color:"#05297F",fontSize:"25px"}}>৳ </span>{item.price2}
               </div>
                <div  style={{textAlign:"center"}}>
                <Button style={{marginRight:"15px"}} onClick={()=>handleSubQuantity(item)}>-</Button>
                <span>{item.quantity}</span>
                <Button  style={{marginLeft:"15px"}}  onClick={()=>handleAddQuantity(item)}>+</Button>
                </div>
-               <p style={{textAlign:"right"}} onClick={()=>handleRemoveCart(item)}><i style={{color:"red",cursor:"pointer",fontSize:"20px"}}  class="fa-regular fa-trash-can"></i></p>
+               <p style={{textAlign:"right"}} onClick={()=>handleRemoveCart(item)}><i style={{color:"#B1B1B1",position:"absolute",top:"-5px",right:"15px",  cursor:"pointer",fontSize:"20px"}} class="fa-sharp fa-solid fa-xmark"></i></p>
               </Col>
              
           </Row>
@@ -207,10 +214,11 @@ const Menubar = () => {
           </>
          ))}
           <div style={{textAlign:"right"}}>
-        <Button color="orange" appearance="primary" style={{marginRight:"20px"}} onClick={handleCartClear}>  Clear All Cart </Button>
+      
         <Link to='/cart'>
-        <Button color="#FC9D9D" appearance="primary" onClick={() => setOpen(false)}>  Go To Cart page </Button>
+        <Button color="#FC9D9D"  style={{marginRight:"20px"}} appearance="primary" onClick={() => setOpen(false)}>  Go To Cart page </Button>
         </Link>
+        <Button color="orange"  appearance="primary" onClick={handleCartClear}>  Clear All Cart </Button>
         </div>
          </>
         :

@@ -8,21 +8,23 @@ const Product = (props) => {
   
 
 //cart
-  const {cartstate,cartdispatch}=useContext(Store)
+  const {state,cartstate,cartdispatch}=useContext(Store)
    const[activecolor,setActiveColor]=useState('')
    const[activeproductsize,setProductSize]=useState('')
 
    
    const {cart}=cartstate
    
-  console.log(activeproductsize)
+  
   
  
 
    const handleAddCart=(product)=>{
-
-    if(activecolor && activeproductsize){
     console.log(product)
+    console.log(state)
+    if(state.userInfo){
+    if(activecolor && activeproductsize){
+    
    
    
     const product_id=product._id.toString();
@@ -31,17 +33,17 @@ const Product = (props) => {
     const existingItem=cart.cartItems.find((item,index)=>item._id===product_id)
  
     const quantity=existingItem?existingItem.quantity+1:1
-    const price= existingItem?existingItem.price*2:product.price 
+    const price2= existingItem?product.price*quantity:product.price 
    
     
     cartdispatch({
       type:'ADD_TO_CART',
-      payload:{...product,quantity,price,color:activecolor,size:activeproductsize}
+      payload:{...product,quantity,price2,color:activecolor,size:activeproductsize}
     })
 
     toast.success('Succesfully added your product', {
       position: "top-center",
-      autoClose: 2000,
+      autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -89,8 +91,18 @@ const Product = (props) => {
       progress: undefined,
       });
   }
-
-
+    }
+    else{
+      toast.info('please login first', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+    }
 
    }
   return (
