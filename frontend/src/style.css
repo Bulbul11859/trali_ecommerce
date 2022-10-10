@@ -708,4 +708,66 @@ margin-bottom: 15px;
  }
 
 
+
+/******************************************************* 
+                   Product Details Csss
+******************************************************** */
+.productDetails{
+ 
+}
+
+.productDetails_price{
+    display: flex;
+font-family: 'Hind';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 36px;
+/* identical to box height, or 150% */
+
+
+color: #05297F;
+}
+.productDetails_stock{
+    font-family: 'Hind';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 18px;
+/* identical to box height, or 129% */
+
+margin-left: 120px;
+color: #252525;
+align-items: center;
+    display: flex;
+}
+.productDetails_stock span{
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right:5px ;
+background: #3B7F05;
+
+}
+.productDetails_left{
+    display: flex;
+flex-direction: row;
+align-items: center;
+padding: 2px 15px;
+   
+
+font-family: 'Hind';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 14px;
+/* identical to box height, or 100% */
+height: 22px;
+
+color: #FFFFFF;
+background: #FC9D9D;
+border-radius: 20px;
+
+}
  

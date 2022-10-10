@@ -13,6 +13,10 @@ const Product=require('./model/productModel.js')
 const Cupon=require('./model/cuponModel.js')
 const User=require('./model/usermodel.js')
 
+require("dotenv").config()
+const stripe=require('stripe')(process.env.SECRET_KEY)
+
+
 const bcrypt = require('bcrypt');
 
 mongoose.connect('mongodb+srv://Trali:83407708@cluster0.cvlcm.mongodb.net/trali?retryWrites=true&w=majority',()=>{
@@ -174,6 +178,7 @@ app.post('/cupon', function (req, res) {
 app.get('/cupon/:cupon',async function (req, res) {
 
   let data=await Cupon.find({cuponname:req.params.cupon})
+  console.log(req.params.cupon)
   res.send(data)
 })
 
@@ -192,6 +197,25 @@ app.post('/cuponlist/:id',async function (req, res) {
   })
 
 })
+
+
+
+app.post('/payment',async function (req, res) {
+  await stripe.charges.create({
+    source:req.body.token.id,
+    amount:req.body.amount,
+    currency:'BDT'
+  })
+   
+})
+
+app.get('/productdetails/:id',async function (req, res) {
+  
+  let data=await Product.findById(req.params.id)
+  res.send(data)
+
+})
+
 
 
 

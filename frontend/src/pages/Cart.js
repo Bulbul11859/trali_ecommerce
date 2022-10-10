@@ -16,22 +16,23 @@ const Cart = () => {
     const [zipecode,setZipcode]=useState('')
     const [cuponcode,setCuponcode]=useState('')
     const [discountcupon,setDiscountcupon]=useState('')
-    console.log(discountcupon)
+
+    
 
     if(zipecode>1000 && zipecode<1360){
       cost=50
-      console.log(cost)
+     
     }
     else if(zipecode>=1400 && zipecode<=1470){
       cost=100
-      console.log(cost)
+     
     }
     else if(zipecode==''){
       cost=0
     }
     else{
       cost=150
-      console.log(cost)
+     
     }
 
     let {cartstate,cartdispatch}=useContext(Store)
@@ -47,6 +48,9 @@ const Cart = () => {
     );
 
     let order_total=Total_price+cost
+
+    let order_discount_total=(order_total-((order_total*discountcupon)/100))
+    
   
    
     let handleAddQuantity=(product)=>{
@@ -102,6 +106,14 @@ const Cart = () => {
          let {data}=await axios.get(`http://localhost:8000/cupon/${cuponcode}`)
          setDiscountcupon(data[0].discount)
         
+    }
+
+    let payment=async(token)=>{
+        let {data}=await axios.post('http://localhost:8000/payment',{
+          amount:order_discount_total*100,
+          token:token
+        }) 
+        console.log(data)
     }
   
     
@@ -217,7 +229,7 @@ const Cart = () => {
            
            <div className='shipping_Order'>
               <h5>Order Total</h5>
-              <h5>{discountcupon?(order_total-((order_total*discountcupon)/100)):order_total}</h5>
+              <h5>{order_discount_total}</h5>
               {/* <h5>{order_total}</h5> */}
            </div>
       
@@ -230,9 +242,10 @@ const Cart = () => {
        
        stripeKey="pk_test_51LpW5UFmZxDeG6doC2618K4oTRMvLdRRxCWSQgjEkGguWg0syHpbDubzoewAB5JSTlzffKkEZvcRbqVeX6dCiipe00NqkzWSeG"
        description="Big Data Stuff"
-       amount={order_total*100}
+      amount={order_discount_total*100}
        currency="BDT"
-       label="Procesed to Checkout"
+        name ='Trali Ecommerce'
+        token={payment}
        
       >
         <h4 className="btn" >Procesed to Checkout</h4>

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Container,Grid, Row, Col,Button,Panel,Rate } from 'rsuite';
 import { ToastContainer, toast } from 'react-toastify';
-
+import { Link } from 'react-router-dom';
 import { Store } from '../Store';
 
 const Product = (props) => {
@@ -111,7 +111,7 @@ const Product = (props) => {
     <img src={props.img} style={{  width:"100%" }} />
    <div className='product'  style={{  width:"100%" }} >
      <Rate style={{width:"75%"}} className='rating' size="xs" readOnly defaultValue={props.rating} allowHalf /> <span style={{width:"10%"}} className='font_zara'>{props.brandName}</span>
-     <h5 className='product_head'>{props.heading}</h5>
+     <h5 className='product_head'><Link to={`/details/${props.product._id}`}>{props.heading}</Link></h5>
      <h5 className='product_head2' dangerouslySetInnerHTML={{__html: props.description}}></h5>
      <div className='colorSizeBox'>
        <div>
