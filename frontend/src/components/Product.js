@@ -108,7 +108,7 @@ const Product = (props) => {
   return (
     <div>
          <Panel  bodyFill style={{ display: 'inline-block', width:"95%" }}>
-    <img src={props.img} style={{  width:"100%" }} />
+    <img src={props.img} style={{  width:"100%",height:"390px" }} />
    <div className='product'  style={{  width:"100%" }} >
      <Rate style={{width:"75%"}} className='rating' size="xs" readOnly defaultValue={props.rating} allowHalf /> <span style={{width:"10%"}} className='font_zara'>{props.brandName}</span>
      <h5 className='product_head'><Link to={`/details/${props.product._id}`}>{props.heading}</Link></h5>

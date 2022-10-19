@@ -38,7 +38,7 @@ const Cart = () => {
     let {cartstate,cartdispatch}=useContext(Store)
     const {cart}=cartstate
 
-    console.log(cart.cartItems)
+   
 
    
 
@@ -152,7 +152,7 @@ const Cart = () => {
           </Col>
           <Col xs={2}>
             <div className='cartpage_price'>
-            <h5 >${item.price}</h5>
+            <h5 >৳ {item.price}</h5>
             </div>
             </Col>
           <Col xs={3}>
@@ -168,7 +168,7 @@ const Cart = () => {
           <Col xs={3}></Col>
           <Col xs={3}>
           <div className='cartpage_price2'>
-            <h5 >${item.price2}</h5>
+            <h5 >৳ {item.price2}</h5>
             </div>
             </Col>
           <Col xs={3}>
