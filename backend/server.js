@@ -209,6 +209,8 @@ app.post('/payment',async function (req, res) {
    
 })
 
+
+ 
 app.get('/productdetails/:id',async function (req, res) {
   
   let data=await Product.findById(req.params.id)
@@ -217,7 +219,13 @@ app.get('/productdetails/:id',async function (req, res) {
 })
 
 
+app.get('/relatedProduct/:relatedProduct',async function (req, res) { 
+  let data=await Product.find({name:req.params.relatedProduct})
+  console.log(data)
+  res.send(data)
+ })
 
+ 
 
 
 app.listen(8000,()=>{

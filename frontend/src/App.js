@@ -2,7 +2,7 @@ import { Button } from 'rsuite';
 import {
   BrowserRouter,
   Routes,
-  Route,
+  Route
 } from "react-router-dom";
 
 
@@ -14,13 +14,16 @@ import Registration from './components/Registration';
 import Login from './components/Login';
 import Cart from './pages/Cart';
 import ProductDetails from './components/ProductDetails';
-
+import Footer from './pages/Footer';
 
 
 
 
 function App() {
+
+ 
   return (
+    
     <>
       
       <BrowserRouter>
@@ -39,6 +42,7 @@ function App() {
       
       </Route>
     </Routes>
+    <Footer/>
   </BrowserRouter>
 
     

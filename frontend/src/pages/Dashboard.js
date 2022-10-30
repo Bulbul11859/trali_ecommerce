@@ -6,6 +6,8 @@ import { Icon } from 'rsuite'
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
+import { useNavigate} from "react-router-dom";
+
 
 const Textarea = React.forwardRef((props, ref) => <Input {...props} as="textarea" ref={ref} />);
 const { Column, HeaderCell, Cell } = Table;
@@ -14,7 +16,8 @@ const { Column, HeaderCell, Cell } = Table;
 const Dashboard = () => {
   let {state}=useContext(Store)
 
-   
+ 
+ 
   
 
     //checkbox

@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import {  useParams } from 'react-router-dom';
-import { Grid, Row, Col } from 'rsuite';
+import { Grid, Row, Col,Rate } from 'rsuite';
 import { Store } from '../Store';
 import { Link } from 'react-router-dom';
-import { useNavigate  } from "react-router-dom";
+import { useNavigate   } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 
 
@@ -15,9 +15,10 @@ const ProductDetails = () => {
   
 
     const {cart}=cartstate
-    console.log(cart)
+    
 
   const navigate = useNavigate();
+ 
 
   const[color,setColor]=useState('')
   const[productsize,setSize]=useState('')
@@ -28,8 +29,12 @@ const ProductDetails = () => {
   
    const[productItem,setProduct]=useState([])
 
+   const [relatedproduct,setRelatedProduct]=useState([])
+
    
     
+console.log("BB",color)
+console.log("BB",productsize)
 
     
    
@@ -40,20 +45,30 @@ const ProductDetails = () => {
   
   let { id } = useParams();
   
+  
 
     
     useEffect(()=>{
        async function productDetails(){
         let {data}=await axios.get(`http://localhost:8000/productdetails/${id}`)
+        let rdata=await axios.get(`http://localhost:8000/relatedProduct/${data.name}`)
+        
         setProduct(data)
         setColor(data.productcolor)
         setSize(data.productsize)
+        console.log(data)
+        
+        setRelatedProduct(rdata.data)
+        
         }
         productDetails()
     },[])
 
+    const newRelatedProduct=relatedproduct.filter(item=> item._id != id)
     
-     
+     console.log(newRelatedProduct)
+  
+       
    
 
   let newBB=cart.cartItems.filter((item)=>item._id==productItem._id)
@@ -102,6 +117,92 @@ const ProductDetails = () => {
     }
 
 
+    const handleAddCart=(product)=>{
+      console.log(product)
+      console.log(state)
+      if(state.userInfo){
+      if(activecolor && activeproductsize){
+      
+     
+     
+      const product_id=product._id.toString();
+  
+  
+      const existingItem=cart.cartItems.find((item,index)=>item._id===product_id)
+   
+      const quantity=existingItem?existingItem.quantity+1:1
+      const price2= existingItem?product.price*quantity:product.price 
+     
+      
+      cartdispatch({
+        type:'ADD_TO_CART',
+        payload:{...product,quantity,price2,color:activecolor,size:activeproductsize}
+      })
+  
+      toast.success('Succesfully added your product', {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+        setActiveColor('')
+        setActiveProductSize('')
+    }
+  
+  
+    else if(!activecolor && !activeproductsize){
+      toast.warn('please added one size & color ', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+    }
+  
+    else if(!activeproductsize){
+      toast.warn('please added one size', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+    }
+  
+  
+    else{
+      toast.warn('please added one color ', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+    }
+      }
+      else{
+        toast.info('please login first', {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+      }
+  
+     }
 
     let Add_To_Cart=(product)=>{
       
@@ -220,8 +321,8 @@ const ProductDetails = () => {
           
           <Row className="show-grid">
             <Col xs={12}>
-              <h1>{productItem.name}</h1>
-             <img src={`../${productItem.image}`} style={{width:"90%",height: "500px"}}/>
+             
+             <img src={`../${productItem.image}`} style={{maxWidth:"100%",height: "750px"}}/>
              
             </Col>
             <Col xs={12}>
@@ -325,7 +426,64 @@ const ProductDetails = () => {
             
           </Row>
 
+          <div className='RelatedProduct'>
+            <h1 className='RelatedProduct_tittle'>Related Product</h1>
+          <Row className="show-grid">
+          {newRelatedProduct.map((item)=>(
+            
+           
+            <Col xs={24} sm={12} md={8} lg={8}>{item.brandname}
+             <div className='RelatedProduct_img'  style={{backgroundImage:`url(../${item.image})`}}></div>
+             <div className='product'  style={{  width:"100%" }} >
+           <Rate style={{width:"75%"}} className='rating' size="xs" readOnly defaultValue={2.5} allowHalf /> <span style={{width:"10%"}} className='font_zara'>{item.brandname}</span>
+           <h5 className='product_head'>{item.name}</h5>
+           <h5 className='product_head2' dangerouslySetInnerHTML={{__html: item.description}}></h5>
+           <div className='colorSizeBox'>
+       <div>
+     {item.productcolor.map(item=>(
+       <span className={activecolor==item?'product_color active_product_color': 'product_color'} style={{background:`#${item}`}} onClick={()=>setActiveColor(item)}></span>
+     ))}
+     </div>
+     <div className='colorSizeBox_Size' style={{marginRight:"40px"}}>
+       {item.productsize.map(item=>(
+        
+         <span style={{cursor:"pointer"}} className={activeproductsize==item?"product_size_bb":""} onClick={()=>setActiveProductSize(item)}>{item} </span>
+        
+       ))}
+     </div>
+     </div>
+
+     <p className='span_bag_icon' onClick={()=>handleAddCart(item)}>
+     <i class="fa-solid fa-bag-shopping bag_icon"></i>
+     <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+     </p>
+
+     <span className='product_dolar_parent'>
+     <span className='product_dolar'>৳{item.price}</span>
+     </span>
+     </div>
+
+            </Col>
+          
+          
+          ))}
+          </Row>
+      
+        </div>
+
         </Grid>
+
+        
       </div>
       
     </div>
