@@ -26,7 +26,7 @@ const Deal = () => {
            <Row className="show-grid">
                {deal.map((item,index)=>(
                   
-                    <Col  xs={12}>
+                    <Col  xs={24} sm={12} md={12} lg={12}>
                         <div className='dealBox' id={`bb_${index}`} style={{backgroundImage:`url(${item.img})`}}>
                             <div className='dealBox_text'>
                             <h5 className={item.classname}>{item.subheading}</h5>

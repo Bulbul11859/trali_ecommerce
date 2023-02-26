@@ -264,6 +264,42 @@ cursor: pointer;
 
 }
 
+@media only screen and (max-width: 900px) {
+    .dealBox .dealBox_text h2{
+        width: 100%;
+        font-family: 'Hind';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 42px;
+        color: #252525;
+        margin-top: 10px;
+    
+    }
+  }
+
+  @media only screen and (max-width: 610px) {
+    .dealBox .dealBox_text h2{
+        width: 100%;
+        font-family: 'Hind';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 42px;
+        color: #252525;
+        margin-top: 10px;
+    
+    }
+  }
+  @media only screen and (max-width: 460px) {
+    #bb_1 {
+        margin-left: 0px;
+        margin-top: 40px;
+    }
+  }
+
+
+
 /******************************************************* 
                       Top Products Csss
 ******************************************************** */
@@ -448,10 +484,12 @@ top: 5px;
 .reg{
   border: 1px solid rgb(197, 197, 197);
   border-radius: 5px;
-   width:325px;
+   width:425px;
    margin: 0 auto;
    margin-top: 30px;
    padding: 10px;
+   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+   
 }
 
 /******************************************************* 

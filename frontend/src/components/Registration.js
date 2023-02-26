@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Container,Form,ButtonToolbar,Button,Textarea } from 'rsuite';
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const Registration = () => {
@@ -8,6 +10,8 @@ const Registration = () => {
     const[email,setEmail]=useState("")
     const[password,setPassword]=useState("")
     const[confirmpassword,setConfirmPassword]=useState("")
+    let navigate = useNavigate();
+
      
     let handleSubmit=()=>{
         console.log("chap dese")
@@ -17,6 +21,8 @@ const Registration = () => {
             password:password,
             confirmpassword:confirmpassword
         })
+        navigate("/login");
+
     }
 
 
@@ -26,7 +32,7 @@ const Registration = () => {
     <Container className='container'>
 
         <div className='reg'>
-        <Form>
+        <Form fluid style={{color:"#000",fontSize:'16px'}}>
             <Form.Group controlId="name">
             <Form.ControlLabel>Username</Form.ControlLabel>
             <Form.Control name="name" onChange={(e)=>setName(e)}/>
@@ -34,7 +40,7 @@ const Registration = () => {
             <Form.Group controlId="email">
             <Form.ControlLabel>Email</Form.ControlLabel>
             <Form.Control name="email" type="email" onChange={(e)=>setEmail(e)} />
-            <Form.HelpText tooltip>Email is required</Form.HelpText>
+           
             </Form.Group>
             <Form.Group controlId="password">
             <Form.ControlLabel>Password</Form.ControlLabel>
@@ -52,7 +58,7 @@ const Registration = () => {
                 <Button appearance="default">Cancel</Button>
             </ButtonToolbar>
             </Form.Group>
-            <Form.HelpText>Already Have An Account?Login</Form.HelpText>
+            <Form.HelpText style={{marginBottom:"50px"}}>Already Have An Account?<Link to="/login">Login</Link> </Form.HelpText>
          </Form>
         </div>
 

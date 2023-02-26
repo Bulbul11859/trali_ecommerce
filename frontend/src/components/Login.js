@@ -35,7 +35,7 @@ const Login = () => {
     <Container className='container'>
 
     <div className='reg'>
-    <Form>
+    <Form fluid style={{color:"#000",fontSize:'16px'}}>
        
         <Form.Group controlId="email">
         <Form.ControlLabel>Email</Form.ControlLabel>
@@ -59,7 +59,7 @@ const Login = () => {
         </ButtonToolbar>
         </Form.Group>
 
-        <Form.HelpText> Have Not An Account?<Link to="/registration">Sign Up</Link>   </Form.HelpText>
+        <Form.HelpText style={{marginBottom:"50px"}}> Have Not An Account?<Link to="/registration">Sign Up</Link>   </Form.HelpText>
      </Form>
     </div>
    

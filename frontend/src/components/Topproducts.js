@@ -14,6 +14,7 @@ const Topproducts = () => {
        }
        fetchproduct()
     },[])
+    console.log("Top",product)
     
   return (
       <>

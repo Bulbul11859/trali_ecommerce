@@ -290,7 +290,7 @@ const Dashboard = () => {
 
           <Form.Group controlId="name-1">
            <Form.ControlLabel>Product Image</Form.ControlLabel>
-           <Form.Control type='file'  name="name"  placeholder='Product Image'/>
+           <Form.Control type='text' onChange={(e)=>setProductImage(e)}  name="name"  placeholder='Product Image'/>
           </Form.Group>
  
        

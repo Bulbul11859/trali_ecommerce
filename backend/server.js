@@ -14,12 +14,14 @@ const Cupon=require('./model/cuponModel.js')
 const User=require('./model/usermodel.js')
 
 require("dotenv").config()
+const DB=process.env.DATABASE
+
 const stripe=require('stripe')(process.env.SECRET_KEY)
 
 
 const bcrypt = require('bcrypt');
 
-mongoose.connect('mongodb+srv://Trali:83407708@cluster0.cvlcm.mongodb.net/trali?retryWrites=true&w=majority',()=>{
+mongoose.connect(DB,()=>{
    console.log("DB Connected")
 });
 
@@ -133,7 +135,7 @@ app.get('/deal', function (req, res) {
 
 
 app.post('/product', function (req, res) {
-  console.log(req.body.productsize)
+  console.log(req.body.image)
   let productInfo={
 
     name:req.body.name,
